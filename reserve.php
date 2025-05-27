@@ -14,13 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $requests = htmlspecialchars(trim($_POST['requests']));
 
     // Prepare SQL statement using prepared statements
-    $stmt = $conn->prepare(
+    $stmt =
         "INSERT INTO reservations (name, email, checkin, checkout, room, requests) 
-        VALUES (?, ?, ?, ?, ?, ?)"
+        VALUES (?, ?, ?, ?, ?, ?)";
     );
-
-    // Bind parameters (s = string)
-    $stmt->bind_param("ssssss", $name, $email, $checkin, $checkout, $room, $requests);
 
     // Try executing the statement
     try {
@@ -29,10 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (Exception $e) {
         echo "<p>Error while saving your reservation: " . $e->getMessage() . "</p>";
     }
-
-    // Close statement and connection
-    $stmt->close();
-    $conn->close();
 } else {
     echo "<h3>Invalid request method. Please submit the form.</h3>";
 }
