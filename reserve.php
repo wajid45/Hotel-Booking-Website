@@ -2,7 +2,7 @@
 include 'db.php';
 
 
-if (isset($_POST('submit')) {
+if (isset($_POST['submit'])) {
     // Sanitize and retrieve inputs
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -12,7 +12,7 @@ if (isset($_POST('submit')) {
     $requests = $_POST['requests'];
 
     // Prepare the SQL statement
-    $sql ="INSERT INTO reservations (name, email, checkin, checkout, room, requests) VALUES ('$name','$email','$checkin','$checkout','$room','$requests')";
+    $sql ="INSERT INTO reservations (name, email, checkin, checkout, room, requests) VALUES (?, ?, ?, ?, ?, ?)";
 
     // Execute the statement
     if (mysqli_query($conn, $sql)) {
@@ -21,5 +21,8 @@ if (isset($_POST('submit')) {
         echo "Error: Database not connected ";
     }
 
+}
+else {
+    echo "<h3>Invalid request method. Please submit the form.</h3>";
 }
 ?>
