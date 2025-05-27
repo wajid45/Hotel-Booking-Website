@@ -1,7 +1,9 @@
 <?php
 include 'db.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+if (isset($_POST('submit')) {
+    // Sanitize and retrieve inputs
     $name = $_POST['name'];
     $email = $_POST['email'];
     $checkin = $_POST['checkin'];
@@ -9,15 +11,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $room = $_POST['room'];
     $requests = $_POST['requests'];
 
-    $stmt = $conn->prepare("INSERT INTO reservations (name, email, checkin, checkout, room, requests) VALUES (?, ?, ?, ?, ?, ?)");
+    // Prepare the SQL statement
+    $sql ="INSERT INTO reservations (name, email, checkin, checkout, room, requests) VALUES ('$name','$email','$checkin','$checkout','$room','$requests')";
 
-    if ($stmt->execute()) {
+    // Execute the statement
+    if (mysqli_query($conn, $sql)) {
         echo "<h2>Thank you! Your reservation has been received.</h2>";
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Error: Database not connected ";
     }
 
-    $stmt->close();
-    $conn->close();
 }
 ?>
