@@ -10,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $requests = $_POST['requests'];
 
     $stmt = $conn->prepare("INSERT INTO reservations (name, email, checkin, checkout, room, requests) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $name, $email, $checkin, $checkout, $room, $requests);
 
     if ($stmt->execute()) {
         echo "<h2>Thank you! Your reservation has been received.</h2>";
