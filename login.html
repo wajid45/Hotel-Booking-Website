@@ -11,7 +11,7 @@
     <!-- Login Form -->
     <div class="form-container" id="login-form">
       <h2>Login</h2>
-      <form action="login.php" method="POST" onsubmit="return validateLoginForm()">
+      <form action="http://localhost:5000/login" method="POST" onsubmit="return validateLoginForm()">
         <div class="form-group">
           <label for="login-email">Email</label>
           <input type="email" id="login-email" name="login-email" placeholder="Enter your email" required />
@@ -30,7 +30,7 @@
     <!-- Signup Form -->
     <div class="form-container hidden" id="signup-form">
       <h2>Sign Up</h2>
-      <form action="signup.php" method="POST" onsubmit="return validateSignupForm()">
+      <form action="http://localhost:5000/signup" method="POST" onsubmit="return validateSignupForm()">
         <div class="form-group">
           <label for="signup-name">Name</label>
           <input type="text" id="signup-name" name="signup-name" placeholder="Enter your name" required />
