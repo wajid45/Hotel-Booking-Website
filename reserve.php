@@ -14,19 +14,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $requests = htmlspecialchars(trim($_POST['requests']));
 
     // Prepare SQL statement using prepared statements
-    $stmt =
-        "INSERT INTO reservations (name, email, checkin, checkout, room, requests) 
+    $sql = "INSERT INTO reservations (name, email, checkin, checkout, room, requests) 
         VALUES (?, ?, ?, ?, ?, ?)";
-    );
-
-    // Try executing the statement
-    try {
-        $stmt->execute();
+    if(!mysqli_query($conn, $sql)){
         echo "<h2>Thank you, $name! Your reservation has been received.</h2>";
-    } catch (Exception $e) {
-        echo "<p>Error while saving your reservation: " . $e->getMessage() . "</p>";
+    } \
+    else{
+        echo "<p>Error while saving your reservation: ";
     }
-} else {
+   
+}else {
     echo "<h3>Invalid request method. Please submit the form.</h3>";
-}
 ?>
