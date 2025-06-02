@@ -359,27 +359,8 @@ a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.room-slider .prev, .room-slider .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    color: #333;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 1;
-}
 
-.room-slider .prev {
-    left: 5px;
-}
 
-.room-slider .next {
-    right: 5px;
-}
 .btn {
     display: inline-block;
     padding: 12px 24px;  /* Add padding for better button size */
