@@ -54,6 +54,27 @@
             <button type="submit" name="submit" class="btn">Confirm Booking</button>
         </form>
     </section>    
+    
+    <script>
+    function validateForm() {
+        const checkin = new Date(document.getElementById("checkin").value);
+        const checkout = new Date(document.getElementById("checkout").value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Remove time component
+
+        if (checkin < today) {
+        alert("Check-in date must be today or later.");
+        return false;
+        }
+
+        if (checkout <= checkin) {
+        alert("Check-out date must be after the check-in date.");
+        return false;
+        }
+
+        return true;
+    }
+    </script>
 
    
 </body>
