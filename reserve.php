@@ -68,6 +68,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 h2 { color: green; }
             </style>
+
+            <script>
+                setTimeout(function() {
+                    window.location.href = 'reservation.html';
+                }, 1500); // Redirect after 1.5 seconds
+            </script>
         </head>
         <body>
             <div class='box'>
